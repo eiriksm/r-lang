@@ -75,4 +75,6 @@ plot(
   xlab = "Year",
   ylab = "Dollars"
 )
-
+g_range <- range(0, dat)
+legend(1986, 2000000, c("Number of beers","Salaries"), cex=0.8,
+   col=c("blue","red"), pch=21:22, lty=1:2);
