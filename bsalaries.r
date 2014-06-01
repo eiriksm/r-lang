@@ -46,10 +46,16 @@ beerFrame <- data.frame(year, numBeers, stringsAsFactors=FALSE)
 # Plot salaries and number of beers on salaries on top of each other.
 dat <- aggregate(numBeers ~ year, beerFrame, mean)
 
-# Use pretty vectorized output (this does not work on my mac).
-svg(filename="./Beer.svg")
-# Uncomment for png output.
-#png(filename="./Beer.png")
+args <- commandArgs(trailingOnly = TRUE)
+if (length(args) > 0 && args[1] == "png")
+{
+  png(filename="./Beer.png")
+} else
+{
+  # Use pretty vectorized output (this does not work on my mac).
+  svg(filename="./Beer.svg")
+}
+
 plot(
   x = dat$year,
   y = dat$numBeers,
